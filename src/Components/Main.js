@@ -12,7 +12,7 @@ class Main extends React.Component {
         {
           data.map(item =>{
             return (
-              <Hornedbeast title={item.title} description={item.description} url={item.image_url}/> 
+              <Hornedbeast showModal={this.props.showModal} title={item.title} description={item.description} url={item.image_url}/> 
               
             )
           } )

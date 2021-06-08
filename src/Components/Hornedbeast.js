@@ -3,18 +3,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 
 class Hornedbeast extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-        numOfclicks : 0
+      horns: 0
     }
-}
+  }
 
-incrementNumOfClicks = () => {
+  incrementNumOfHorns = () => {
     this.setState({
-      numOfclicks : this.state.numOfclicks+1
-    })
-}
+      horns: this.state.horns + 1
+    });
+    this.props.showModal(this.props.title);
+  }
   render() {
     return (
       <div>
@@ -24,17 +25,17 @@ incrementNumOfClicks = () => {
         <p className='description'>description: {this.props.description}</p>
  */}
 
-                <Card style={{ width: '20rem' }}>
-                <Card.Img variant="top" src={this.props.url} onClick={this.incrementNumOfClicks}/>
-                <Card.Body>
-                    <Card.Title> {this.props.title}</Card.Title>
-                    <Card.Text>
-                    💙 {this.state.numOfclicks}
-                    </Card.Text>
-                    <p className='description'>description: {this.props.description}</p>
-                </Card.Body>
-                </Card>
-           
+        <Card style={{ width: '20rem' }}  onClick={this.incrementNumOfHorns}>
+          <Card.Img variant="top" src={this.props.url} />
+          <Card.Body>
+            <Card.Title> {this.props.title}</Card.Title>
+            <Card.Text>
+              💙 {this.state.horns}
+            </Card.Text>
+            <p className='description'>description: {this.props.description}</p>
+          </Card.Body>
+        </Card>
+
 
 
       </div >
