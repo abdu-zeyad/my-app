@@ -21,7 +21,7 @@ class App extends React.Component {
 
   showModal = (name) => {
 
-    const selectedBeast = Data.find(beast => beast.title === name);
+    const selectedBeast = Data.find(beast => beast.title.includes(name) );
     console.log(selectedBeast);
 
     this.setState({ selectedBeast, displayModal: true });
