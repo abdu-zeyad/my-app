@@ -14,6 +14,7 @@ class App extends React.Component {
       Data: Data,
       beastData: Data,
       selectedBeast: {},
+      selecteditems: Data,
     };
   }
 
@@ -24,7 +25,10 @@ class App extends React.Component {
     this.setState({ selectedBeast, displayModal: true });
   };
   filtermodel = (number) => {
-    const selecteditems = Data.filter((beast) => number === beast.horns);
+    const selecteditems = Data.filter(
+      (beast) => number === beast.horns.toString()
+    );
+    this.setState({ selecteditems });
     console.log(selecteditems);
   };
   hideModal = () => {
@@ -35,7 +39,11 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Main showModal={this.showModal} filtermodel={this.filtermodel} />
+        <Main
+          showModal={this.showModal}
+          selecteditems={this.state.selecteditems}
+          filtermodel={this.filtermodel}
+        />
         <SelectedBeast
           displayModal={this.state.displayModal}
           hideModal={this.hideModal}

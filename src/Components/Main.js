@@ -1,6 +1,6 @@
 import React from "react";
 import Hornedbeast from "./Hornedbeast";
-import data from "./data.json";
+// import data from "./data.json";
 import Form from "./Form";
 
 class Main extends React.Component {
@@ -8,8 +8,7 @@ class Main extends React.Component {
     return (
       <div>
         <Form filtermodel={this.props.filtermodel} />
-
-        {data.map((item) => {
+        {this.props.selecteditems.map((item) => {
           return (
             <Hornedbeast
               showModal={this.props.showModal}

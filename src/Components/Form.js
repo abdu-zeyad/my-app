@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", lists: [1, 2, 3, 100] };
+    this.state = { value: 0, lists: [1, 2, 3, 100] };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -19,6 +19,7 @@ class Form extends React.Component {
     // this.setState({ value: event.target.value });
 
     console.log(this.state);
+    // console.log( this.props.filtermodel());
   }
 
   render() {
