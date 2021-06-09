@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "coconut", lists: ["1", "2", "3", "100"] };
+    this.state = { value: "", lists: [1, 2, 3, 100] };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -13,9 +13,12 @@ class Form extends React.Component {
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
-
   handleSubmit(event) {
     event.preventDefault();
+    this.props.filtermodel(this.state.value);
+    // this.setState({ value: event.target.value });
+
+    console.log(this.state);
   }
 
   render() {
@@ -23,11 +26,9 @@ class Form extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Pick the number of horns:
-          <select>
+          <select onChange={this.handleChange}>
             {this.state.lists.map((horn) => (
-              <option onChange={this.handleChange} key={horn} value={horn}>
-                {horn}
-              </option>
+              <option value={horn}>{horn}</option>
             ))}
 
             {/* <option value="two">2</option>

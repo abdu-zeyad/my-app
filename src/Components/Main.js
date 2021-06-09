@@ -1,32 +1,28 @@
-import React from 'react';
-import Hornedbeast from './Hornedbeast';
-import data from './data.json'
-import Form from './Form'
+import React from "react";
+import Hornedbeast from "./Hornedbeast";
+import data from "./data.json";
+import Form from "./Form";
 
 class Main extends React.Component {
-
-
-
-
   render() {
     return (
       <div>
-        <Form />
+        <Form filtermodel={this.props.filtermodel} />
 
-        {
-          data.map(item => {
-            return (
-              <Hornedbeast showModal={this.props.showModal} title={item.title} description={item.description} url={item.image_url} />
-
-            )
-          })
-        }
-
+        {data.map((item) => {
+          return (
+            <Hornedbeast
+              showModal={this.props.showModal}
+              title={item.title}
+              horns={item.horns}
+              description={item.description}
+              url={item.image_url}
+            />
+          );
+        })}
       </div>
-
-    )
+    );
   }
 }
-
 
 export default Main;
